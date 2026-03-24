@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>นโยบายความเป็นส่วนตัว — Jod (จด)</title>
+  <style>
+    :root {
+      --accent: #007aff;
+      --text: #1d1d1f;
+      --secondary: #6e6e73;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --border: #d2d2d7;
+      --green: #34c759;
+      --red: #ff3b30;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f5f5f7;
+        --secondary: #98989d;
+        --bg: #000000;
+        --surface: #1c1c1e;
+        --border: #38383a;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .app-icon {
+      font-size: 64px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .doc-title {
+      font-size: 18px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--secondary);
+      background: var(--surface);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 36px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    ul,
+    ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--surface);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
+
+    .badge-no {
+      background: rgba(255, 59, 48, 0.1);
+      color: var(--red);
+    }
+
+    .badge-optional {
+      background: rgba(0, 122, 255, 0.1);
+      color: var(--accent);
+    }
+
+    .badge-auto {
+      background: rgba(52, 199, 89, 0.1);
+      color: var(--green);
+    }
+
+    .highlight {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .highlight p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .not-collected {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .not-collected li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .not-collected li::before {
+      content: "✗";
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .not-collected li {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .contact-card .email {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .lang-btn {
+      padding: 6px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--secondary);
+      font-size: 13px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .en-content {
+      display: none;
+    }
+
+    .th-content {
+      display: block;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--secondary);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="app-icon">📒</div>
+    <div class="app-name">Jod (จด)</div>
+    <div class="doc-title">นโยบายความเป็นส่วนตัว / Privacy Policy</div>
+    <div class="meta">
+      <span class="meta-item">อัพเดท: 1 เมษายน 2026</span>
+      <span class="meta-item">Bundle ID: com.bsan.jod</span>
+      <span class="meta-item">Version 1.0.0</span>
+    </div>
+  </div>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('th', this)">🇹🇭 ภาษาไทย</button>
+    <button class="lang-btn" onclick="setLang('en', this)">🇺🇸 English</button>
+  </div>
+
+  <!-- ════ THAI ════ -->
+  <div class="th-content" id="th">
+
+    <div class="highlight">
+      <p><strong>สรุปสั้น:</strong> Jod เก็บข้อมูลทางการเงินไว้ในอุปกรณ์ของคุณเท่านั้น ไม่มีบัญชีผู้ใช้ ไม่ขายข้อมูล
+        และไม่ส่งข้อมูลการเงินออกไปยังบุคคลที่สาม</p>
+    </div>
+
+    <h2>1. ข้อมูลที่เก็บรวบรวม</h2>
+
+    <h3>ข้อมูลที่เก็บในอุปกรณ์ของคุณ</h3>
+    <p>ข้อมูลต่อไปนี้ถูกเก็บในอุปกรณ์ของคุณและไม่ถูกส่งไปยัง Jod หรือบุคคลที่สาม:</p>
+    <ul>
+      <li>ธุรกรรมทางการเงิน — รายรับ รายจ่าย จำนวนเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก</li>
+      <li>ข้อมูลบัญชี — ชื่อ ประเภท ยอดเงิน วันครบกำหนดบัตรเครดิต วงเงิน (ไม่รวมเลขบัตร)</li>
+      <li>ชื่อผู้ใช้ — ชื่อที่ตั้งใน Settings (ไม่บังคับ ไม่ใช่ข้อมูลจริง)</li>
+      <li>ข้อมูลสถานที่ — ชื่อสถานที่ที่แนบกับธุรกรรม (ต้องได้รับอนุญาตก่อน)</li>
+      <li>การตั้งค่า — ธีม ภาษา สกุลเงินหลัก การแจ้งเตือน</li>
+    </ul>
+
+    <h3>ซิงค์กับ iCloud (ถ้าเปิดใช้งาน)</h3>
+    <p>หากคุณเปิดใช้ iCloud ข้อมูลข้างต้นจะซิงค์ผ่าน <strong>Apple CloudKit</strong> ซึ่งอยู่ภายใต้ <a
+        href="https://www.apple.com/legal/privacy/" target="_blank">นโยบายความเป็นส่วนตัวของ Apple</a> คุณสามารถลบข้อมูล
+      iCloud ได้จาก Settings ในแอพ</p>
+
+    <h3>ส่งไปยัง Firebase</h3>
+    <p>เพื่อปรับปรุงแอพ Jod ส่งข้อมูลต่อไปนี้ไปยัง Google Firebase:</p>
+    <ul>
+      <li><strong>Crash Reports (Crashlytics)</strong> — รายงาน crash โดยไม่ระบุตัวตน เพื่อแก้ไขบัก</li>
+      <li><strong>Analytics Events</strong> — สถิติการใช้งานฟีเจอร์โดยรวม ไม่มีข้อมูลส่วนบุคคล</li>
+    </ul>
+    <p><strong>ข้อมูลทางการเงินทั้งหมดไม่ถูกส่งไปยัง Firebase</strong></p>
+
+    <h2>2. สิทธิ์ที่แอพขอใช้</h2>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>สิทธิ์</th>
+          <th>วัตถุประสงค์</th>
+          <th>บังคับ</th>
+        </tr>
+        <tr>
+          <td>Face ID / Touch ID</td>
+          <td>ล็อคแอพเพื่อปกป้องข้อมูลส่วนตัว</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>กล้อง</td>
+          <td>สแกนใบเสร็จด้วย OCR</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>ไมโครโฟน + Speech Recognition</td>
+          <td>บันทึกรายการด้วยเสียง</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>ตำแหน่งที่ตั้ง (เมื่อใช้แอพ)</td>
+          <td>Check-in สถานที่กับธุรกรรม</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>Photos</td>
+          <td>เลือกรูปใบเสร็จจาก Photos</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>Notifications</td>
+          <td>แจ้งเตือนวันครบกำหนดชำระบัตรเครดิต</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+      </table>
+    </div>
+    <p>คุณสามารถเพิกถอนสิทธิ์ได้ตลอดเวลาผ่าน <strong>iOS Settings → Jod</strong></p>
+
+    <h2>3. ข้อมูลที่ไม่เก็บ</h2>
+    <div class="not-collected">
+      <ul>
+        <li>เลขบัตรเครดิต / CVV / รหัสผ่านธนาคาร</li>
+        <li>ข้อมูลระบุตัวตน เช่น ชื่อจริง เลขบัตรประชาชน หมายเลขพาสปอร์ต</li>
+        <li>ข้อมูลจาก Contacts หรือ Calendar</li>
+        <li>ประวัติการค้นหาหรือเว็บบราวซิ่ง</li>
+        <li>ข้อมูลเพื่อขายให้บุคคลที่สาม</li>
+      </ul>
+    </div>
+
+    <h2>4. การซื้อในแอพ (Jod Pro)</h2>
+    <p>การซื้อ Jod Pro ดำเนินการผ่าน <strong>Apple App Store</strong> ทั้งหมด Jod
+      ไม่เก็บหรือประมวลผลข้อมูลการชำระเงินโดยตรง กรุณาดู <a href="https://www.apple.com/legal/internet-services/itunes/"
+        target="_blank">Apple Media Services Terms</a></p>
+
+    <h2>5. สิทธิ์ของคุณ</h2>
+    <ul>
+      <li><strong>ลบข้อมูลในอุปกรณ์:</strong> ถอนการติดตั้งแอพ</li>
+      <li><strong>ลบข้อมูล iCloud:</strong> Settings → iCloud → ลบข้อมูล Jod</li>
+      <li><strong>ปิด Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
+      <li><strong>เพิกถอนสิทธิ์:</strong> iOS Settings → Jod → ปิดสิทธิ์ที่ต้องการ</li>
+    </ul>
+
+    <h2>6. ผู้เยาว์</h2>
+    <p>แอพนี้ไม่ได้มุ่งเป้าไปยังเด็กอายุต่ำกว่า 13 ปี และไม่เก็บข้อมูลของผู้เยาว์โดยตั้งใจ</p>
+
+    <h2>7. การเปลี่ยนแปลงนโยบาย</h2>
+    <p>หากมีการเปลี่ยนแปลงที่สำคัญ เราจะแจ้งผ่าน app update หรืออัพเดทวันที่ด้านบนของหน้านี้</p>
+
+    <h2>8. ติดต่อ</h2>
+    <div class="contact-card">
+      <p>มีคำถามเกี่ยวกับนโยบายนี้?</p>
+      <div class="email"><a href="mailto:YOUR_EMAIL@domain.com">YOUR_EMAIL@domain.com</a></div>
+    </div>
+
+  </div>
+
+  <!-- ════ ENGLISH ════ -->
+  <div class="en-content" id="en">
+
+    <div class="highlight">
+      <p><strong>TL;DR:</strong> Jod stores your financial data locally on your device only. No user accounts, no data
+        selling, no financial data sent to third parties.</p>
+    </div>
+
+    <h2>1. Data We Collect</h2>
+
+    <h3>Stored Locally on Your Device</h3>
+    <p>The following data is stored on your device and not transmitted to Jod or third parties:</p>
+    <ul>
+      <li>Financial transactions — income, expenses, amounts, categories, dates, notes, tags</li>
+      <li>Account information — name, type, balance, credit card due dates, credit limits (no card numbers)</li>
+      <li>Display name — name you set in Settings (optional, not your real identity)</li>
+      <li>Location names — place names attached to transactions (requires permission)</li>
+      <li>Preferences — theme, language, base currency, notification settings</li>
+    </ul>
+
+    <h3>Synced via iCloud (if enabled)</h3>
+    <p>If you enable iCloud, the above data syncs through <strong>Apple CloudKit</strong>, governed by <a
+        href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>. You can delete your
+      iCloud data from within the app's Settings.</p>
+
+    <h3>Sent to Firebase</h3>
+    <p>To improve the app, Jod sends the following to Google Firebase:</p>
+    <ul>
+      <li><strong>Crash Reports (Crashlytics)</strong> — anonymous crash data to help fix bugs</li>
+      <li><strong>Analytics Events</strong> — aggregate feature usage statistics, no personal data</li>
+    </ul>
+    <p><strong>No financial data is ever sent to Firebase.</strong></p>
+
+    <h2>2. Permissions Requested</h2>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Permission</th>
+          <th>Purpose</th>
+          <th>Required</th>
+        </tr>
+        <tr>
+          <td>Face ID / Touch ID</td>
+          <td>App Lock to protect your financial data</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Camera</td>
+          <td>Scan receipts using OCR</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Microphone + Speech Recognition</td>
+          <td>Voice entry for transactions</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Location (When In Use)</td>
+          <td>Check-in places to transactions</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Photos</td>
+          <td>Select receipt images from Photos</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Notifications</td>
+          <td>Credit card payment due date reminders</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+      </table>
+    </div>
+    <p>You can revoke any permission at any time via <strong>iOS Settings → Jod</strong>.</p>
+
+    <h2>3. Data We Do NOT Collect</h2>
+    <div class="not-collected">
+      <ul>
+        <li>Credit card numbers, CVV codes, or banking passwords</li>
+        <li>Personal identifiers such as real name, national ID, or passport number</li>
+        <li>Data from your Contacts or Calendar</li>
+        <li>Browsing history or search activity</li>
+        <li>Any data sold to advertisers or third parties</li>
+      </ul>
+    </div>
+
+    <h2>4. In-App Purchase (Jod Pro)</h2>
+    <p>Jod Pro purchases are processed entirely through the <strong>Apple App Store</strong>. Jod does not collect or
+      process payment information directly. See <a href="https://www.apple.com/legal/internet-services/itunes/"
+        target="_blank">Apple Media Services Terms</a>.</p>
+
+    <h2>5. Your Rights</h2>
+    <ul>
+      <li><strong>Delete local data:</strong> Uninstall the app</li>
+      <li><strong>Delete iCloud data:</strong> Settings → iCloud → Delete Jod data</li>
+      <li><strong>Opt out of Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
+      <li><strong>Revoke permissions:</strong> iOS Settings → Jod → toggle off any permission</li>
+    </ul>
+
+    <h2>6. Children's Privacy</h2>
+    <p>This app is not directed at children under 13 and does not knowingly collect data from minors.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>If we make significant changes, we'll notify you via an app update or by updating the date at the top of this
+      page.</p>
+
+    <h2>8. Contact</h2>
+    <div class="contact-card">
+      <p>Questions about this policy?</p>
+      <div class="email"><a href="mailto:sukrit.siripun@gmail.com">SUKRIT.SIRIPUN@GMAIL>COM</a></div>
+    </div>
+
+  </div>
+
+  <footer>
+    Jod (จด) · com.bsan.jod <br>
+  </footer>
+
+  <script>
+    function setLang(lang, btn) {
+      document.getElementById('th').style.display = lang === 'th' ? 'block' : 'none';
+      document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+
+</html>
