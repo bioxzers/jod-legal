@@ -203,7 +203,7 @@
     }
 
     .not-collected li::before {
-      content: "✗";
+      content: "\2717";
       color: var(--red);
       font-weight: 700;
       flex-shrink: 0;
@@ -279,7 +279,7 @@
     <div class="app-name">Jod The Money Tracker Apps (จด)</div>
     <div class="doc-title">นโยบายความเป็นส่วนตัว / Privacy Policy</div>
     <div class="meta">
-      <span class="meta-item">อัพเดท: 1 เมษายน 2026</span>
+      <span class="meta-item">อัพเดท: 28 มีนาคม 2026</span>
       <span class="meta-item">Bundle ID: com.bsan.jod</span>
       <span class="meta-item">Version 1.0.0</span>
     </div>
@@ -306,7 +306,9 @@
       <li>ธุรกรรมทางการเงิน — รายรับ รายจ่าย จำนวนเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก</li>
       <li>ข้อมูลบัญชี — ชื่อ ประเภท ยอดเงิน วันครบกำหนดบัตรเครดิต วงเงิน (ไม่รวมเลขบัตร)</li>
       <li>ชื่อผู้ใช้ — ชื่อที่ตั้งใน Settings (ไม่บังคับ ไม่ใช่ข้อมูลจริง)</li>
-      <li>ข้อมูลสถานที่ — ชื่อสถานที่ที่แนบกับธุรกรรม (ต้องได้รับอนุญาตก่อน)</li>
+      <li>ข้อมูลสถานที่ — ชื่อสถานที่ที่แนบกับธุรกรรมและปั๊มน้ำมัน (ต้องได้รับอนุญาตก่อน)</li>
+      <li>ข้อมูลยานพาหนะ — ชื่อรถ ประเภท ทะเบียน โอโดมิเตอร์ (สำหรับฟีเจอร์บันทึกน้ำมัน)</li>
+      <li>บันทึกการเติมน้ำมัน — ประเภทน้ำมัน ราคา ปริมาณลิตร โอโดมิเตอร์ ชื่อปั๊ม</li>
       <li>การตั้งค่า — ธีม ภาษา สกุลเงินหลัก การแจ้งเตือน</li>
     </ul>
 
@@ -320,8 +322,18 @@
     <ul>
       <li><strong>Crash Reports (Crashlytics)</strong> — รายงาน crash โดยไม่ระบุตัวตน เพื่อแก้ไขบัก</li>
       <li><strong>Analytics Events</strong> — สถิติการใช้งานฟีเจอร์โดยรวม ไม่มีข้อมูลส่วนบุคคล</li>
+      <li><strong>Remote Config</strong> — ดึง URL แหล่งข้อมูลภายนอก (อัตราแลกเปลี่ยน, ราคาน้ำมัน, หวย) เพื่อให้อัพเดทได้โดยไม่ต้องออก app update ใหม่ ไม่มีข้อมูลส่วนบุคคล</li>
     </ul>
     <p><strong>ข้อมูลทางการเงินทั้งหมดไม่ถูกส่งไปยัง Firebase</strong></p>
+
+    <h3>ข้อมูลที่ดึงจากแหล่งภายนอก (ฟีเจอร์ Gimmick Tools)</h3>
+    <p>ฟีเจอร์บางอย่างดึงข้อมูลสาธารณะจากแหล่งภายนอก ข้อมูลเหล่านี้ <strong>ไม่ใช่ข้อมูลส่วนตัวของคุณ</strong> และไม่เกี่ยวข้องกับบัญชีหรือธุรกรรมของคุณ:</p>
+    <ul>
+      <li><strong>ราคาน้ำมัน (Bangchak)</strong> — ดึงข้อมูลราคาน้ำมันสาธารณะผ่าน GitHub Gist (อัพเดทอัตโนมัติทุก 10 นาที) ใช้แสดงราคาน้ำมันปัจจุบันและพรุ่งนี้เท่านั้น</li>
+      <li><strong>อัตราแลกเปลี่ยน</strong> — ดึงจาก API ธนาคารแห่งประเทศไทย (BOT) วันละครั้ง ใช้แปลงสกุลเงินในธุรกรรม</li>
+      <li><strong>ผลสลากกินแบ่งรัฐบาล</strong> — ดึงผลรางวัลสาธารณะสำหรับฟีเจอร์ตรวจสลาก</li>
+    </ul>
+    <p>ไม่มีข้อมูลส่วนตัวของคุณถูกส่งออกระหว่างการดึงข้อมูลเหล่านี้</p>
 
     <h2>2. สิทธิ์ที่แอพขอใช้</h2>
     <div class="table-wrap">
@@ -348,7 +360,7 @@
         </tr>
         <tr>
           <td>ตำแหน่งที่ตั้ง (เมื่อใช้แอพ)</td>
-          <td>Check-in สถานที่กับธุรกรรม</td>
+          <td>Check-in สถานที่กับธุรกรรม และค้นหาปั๊มน้ำมันใกล้เคียงในฟีเจอร์บันทึกน้ำมัน</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
@@ -358,7 +370,7 @@
         </tr>
         <tr>
           <td>Notifications</td>
-          <td>แจ้งเตือนวันครบกำหนดชำระบัตรเครดิต</td>
+          <td>แจ้งเตือนวันครบกำหนดชำระบัตรเครดิต และแจ้งเตือนเมื่อราคาน้ำมันเปลี่ยนแปลง</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
       </table>
@@ -419,7 +431,9 @@
       <li>Financial transactions — income, expenses, amounts, categories, dates, notes, tags</li>
       <li>Account information — name, type, balance, credit card due dates, credit limits (no card numbers)</li>
       <li>Display name — name you set in Settings (optional, not your real identity)</li>
-      <li>Location names — place names attached to transactions (requires permission)</li>
+      <li>Location names — place names attached to transactions and fuel stations (requires permission)</li>
+      <li>Vehicle information — vehicle name, type, license plate, odometer readings (for Fuel Log feature)</li>
+      <li>Fuel log entries — fuel type, price, liters, odometer, station name</li>
       <li>Preferences — theme, language, base currency, notification settings</li>
     </ul>
 
@@ -433,8 +447,18 @@
     <ul>
       <li><strong>Crash Reports (Crashlytics)</strong> — anonymous crash data to help fix bugs</li>
       <li><strong>Analytics Events</strong> — aggregate feature usage statistics, no personal data</li>
+      <li><strong>Remote Config</strong> — fetches external data source URLs (exchange rates, oil prices, lottery) to allow updates without requiring a new app release. No personal data is involved.</li>
     </ul>
     <p><strong>No financial data is ever sent to Firebase.</strong></p>
+
+    <h3>External Data Fetched for Gimmick Tools</h3>
+    <p>Some features retrieve publicly available data from external sources. This data is <strong>not your personal data</strong> and is unrelated to your accounts or transactions:</p>
+    <ul>
+      <li><strong>Oil Prices (Bangchak)</strong> — public oil price data fetched via GitHub Gist (updated automatically every 10 minutes). Used only to display current and tomorrow's oil prices.</li>
+      <li><strong>Exchange Rates</strong> — fetched from the Bank of Thailand (BOT) API once daily. Used to convert currencies in transactions.</li>
+      <li><strong>Lottery Results</strong> — public prize data fetched for the Lottery Checker feature.</li>
+    </ul>
+    <p>No personal data is transmitted during any of these external data fetches.</p>
 
     <h2>2. Permissions Requested</h2>
     <div class="table-wrap">
@@ -461,7 +485,7 @@
         </tr>
         <tr>
           <td>Location (When In Use)</td>
-          <td>Check-in places to transactions</td>
+          <td>Check-in places to transactions, and search for nearby fuel stations in the Fuel Log feature</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
@@ -471,7 +495,7 @@
         </tr>
         <tr>
           <td>Notifications</td>
-          <td>Credit card payment due date reminders</td>
+          <td>Credit card payment due date reminders, and oil price change alerts</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
       </table>
@@ -519,7 +543,7 @@
 
   <footer>
     Jod The Money Tracker Apps (จด) · com.bsan.jod <br>
-    <a href="https://apps.apple.com/app/id[YOUR_APP_ID]" target="_blank">App Store</a>
+    <a href="https://apps.apple.com/app/id6743746951" target="_blank">App Store</a>
   </footer>
 
   <script>
