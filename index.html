@@ -2,118 +2,100 @@
 <html lang="th">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>นโยบายความเป็นส่วนตัว — Jod (จด)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>นโยบายความเป็นส่วนตัว — Jod The Money Tracker Apps (จด)</title>
   <style>
-    /* ... (Style เดิมทั้งหมดคงไว้) ... */
     :root {
-      --bg: #ffffff;
-      --surface: #f2f2f7;
-      --text: #1c1c1e;
-      --text-secondary: #6e6e73;
-      --border: #e5e5ea;
       --accent: #007aff;
+      --text: #1d1d1f;
+      --secondary: #6e6e73;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --border: #d2d2d7;
       --green: #34c759;
       --red: #ff3b30;
-      --orange: #ff9500;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
+        --text: #f5f5f7;
+        --secondary: #98989d;
         --bg: #000000;
         --surface: #1c1c1e;
-        --text: #ffffff;
-        --text-secondary: #aeaeb2;
         --border: #38383a;
-        --accent: #0a84ff;
-        --green: #30d158;
-        --red: #ff453a;
-        --orange: #ff9f0a;
       }
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      font-size: 15px;
-      padding: 24px 20px 48px;
+      line-height: 1.65;
       max-width: 720px;
       margin: 0 auto;
+      padding: 40px 24px 80px;
     }
 
-    .lang-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .lang-btn {
-      padding: 6px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s;
+    .app-icon {
+      font-size: 64px;
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
-    .lang-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    header {
-      margin-bottom: 28px;
-    }
-
-    .app-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      margin-bottom: 6px;
-    }
-
-    header h1 {
-      font-size: 26px;
+    .app-name {
+      font-size: 28px;
       font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+    }
+
+    .doc-title {
+      font-size: 18px;
+      color: var(--secondary);
+      margin-bottom: 16px;
     }
 
     .meta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
       font-size: 13px;
-      color: var(--text-secondary);
+      color: var(--secondary);
+      background: var(--surface);
+      padding: 4px 12px;
+      border-radius: 20px;
     }
 
     h2 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 28px 0 10px;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 36px 0 12px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
 
     h3 {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
-      color: var(--text-secondary);
-      margin: 16px 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      font-size: 12px;
+      margin: 20px 0 8px;
+      color: var(--accent);
     }
 
     p {
@@ -179,6 +161,11 @@
       border-radius: 8px;
     }
 
+    .badge-no {
+      background: rgba(255, 59, 48, 0.1);
+      color: var(--red);
+    }
+
     .badge-optional {
       background: rgba(0, 122, 255, 0.1);
       color: var(--accent);
@@ -209,17 +196,10 @@
       margin: 16px 0;
     }
 
-    .not-collected ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
     .not-collected li {
       display: flex;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 6px;
     }
 
     .not-collected li::before {
@@ -229,91 +209,135 @@
       flex-shrink: 0;
     }
 
+    .not-collected li {
+      list-style: none;
+      padding-left: 0;
+    }
+
     .contact-card {
       background: var(--surface);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 16px;
       text-align: center;
-      margin-top: 12px;
     }
 
-    .contact-card p {
-      margin-bottom: 8px;
-      color: var(--text-secondary);
-    }
-
-    .email {
-      font-size: 15px;
+    .contact-card .email {
+      font-size: 18px;
       font-weight: 600;
-      letter-spacing: 0.3px;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .lang-btn {
+      padding: 6px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--secondary);
+      font-size: 13px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .en-content {
+      display: none;
+    }
+
+    .th-content {
+      display: block;
     }
 
     footer {
       margin-top: 48px;
-      padding-top: 20px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--text-secondary);
       text-align: center;
-      line-height: 1.8;
+      color: var(--secondary);
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="lang-bar">
-    <button class="lang-btn active" onclick="setLang('th', this)">ภาษาไทย</button>
-    <button class="lang-btn" onclick="setLang('en', this)">English</button>
+  <div class="header">
+    <div class="app-icon">📒</div>
+    <div class="app-name">Jod The Money Tracker Apps (จด)</div>
+    <div class="doc-title">นโยบายความเป็นส่วนตัว / Privacy Policy</div>
+    <div class="meta">
+      <span class="meta-item">อัพเดท: 15 เมษายน 2026</span>
+      <span class="meta-item">Bundle ID: com.bsan.jod</span>
+      <span class="meta-item">Version 0.9.15</span>
+    </div>
   </div>
 
-  <div id="th">
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('th', this)">🇹🇭 ภาษาไทย</button>
+    <button class="lang-btn" onclick="setLang('en', this)">🇺🇸 English</button>
+  </div>
 
-    <header>
-      <div class="app-label">Jod (จด) · com.bsan.jod</div>
-      <h1>นโยบายความเป็นส่วนตัว</h1>
-      <p class="meta">มีผลบังคับใช้: 7 เมษายน 2569 · เวอร์ชัน 0.9.14</p>
-    </header>
+  <!-- ════ THAI ════ -->
+  <div class="th-content" id="th">
 
     <div class="highlight">
-      <p><strong>โดยย่อ:</strong> Jod เก็บข้อมูลการเงินไว้ในอุปกรณ์ของคุณเท่านั้น ไม่มีบัญชีผู้ใช้ ไม่ขายข้อมูล
-        ไม่ส่งข้อมูลการเงินไปยังบุคคลที่สาม ข้อมูลการแจ้งเตือนถูกเก็บไว้ชั่วคราวภายในเครื่องเพื่อความสะดวกของคุณ</p>
+      <p><strong>สรุปสั้น:</strong> Jod เก็บข้อมูลทางการเงินไว้ในอุปกรณ์ของคุณเท่านั้น ไม่มีบัญชีผู้ใช้ ไม่ขายข้อมูล
+        และไม่ส่งข้อมูลการเงินออกไปยังบุคคลที่สาม</p>
     </div>
 
-    <h2>1. ข้อมูลที่เราจัดเก็บ</h2>
+    <h2>1. ข้อมูลที่เก็บรวบรวม</h2>
 
-    <h3>จัดเก็บในอุปกรณ์ของคุณ (ไม่ส่งออก)</h3>
-    <p>ข้อมูลต่อไปนี้ถูกจัดเก็บในอุปกรณ์ผ่าน SwiftData และไม่ถูกส่งไปยัง Jod หรือบุคคลที่สาม:</p>
+    <h3>ข้อมูลที่เก็บในอุปกรณ์ของคุณ</h3>
+    <p>ข้อมูลต่อไปนี้ถูกเก็บในอุปกรณ์ของคุณและไม่ถูกส่งไปยัง Jod หรือบุคคลที่สาม:</p>
     <ul>
-      <li>รายการธุรกรรม — รายรับ รายจ่าย ยอดเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก</li>
-      <li>ข้อมูลบัญชี — ชื่อ ประเภท ยอดคงเหลือ วันครบกำหนดชำระบัตรเครดิต วงเงิน (ไม่มีเลขบัตร)</li>
-      <li><strong>ประวัติการแจ้งเตือน (Notification Log)</strong> — บันทึกหัวข้อและเนื้อหาการแจ้งเตือน (ราคาน้ำมัน, หวย,
-        บัตรเครดิต, ฉายา) เพื่อแสดงใน Notification Center ข้อมูลนี้จะถูกลบอัตโนมัติเมื่อครบ 30 วัน</li>
-      <li>ความคืบหน้าฉายา (Achievements) — รายการภารกิจและฉายาที่คุณปลดล็อคได้</li>
-      <li>ชื่อที่แสดง — ชื่อที่คุณตั้งใน Settings (ไม่บังคับ ไม่ใช่ตัวตนจริง)</li>
-      <li>ข้อมูลยานพาหนะและบันทึกน้ำมัน — ชื่อรถ ทะเบียน เลขไมล์ และประวัติการเติมน้ำมัน</li>
-      <li>การตั้งค่า — ธีม ภาษา สกุลเงินหลัก การแจ้งเตือน</li>
+      <li>ธุรกรรมทางการเงิน — รายรับ รายจ่าย จำนวนเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก รูปใบเสร็จ</li>
+      <li>ข้อมูลบัญชี — ชื่อ ประเภท ยอดเงิน วันครบกำหนดบัตรเครดิต วงเงิน (ไม่รวมเลขบัตร)</li>
+      <li>ชื่อผู้ใช้ — ชื่อที่ตั้งใน Settings (ไม่บังคับ ไม่ใช่ข้อมูลจริง)</li>
+      <li>ข้อมูลสถานที่ — ชื่อสถานที่ที่แนบกับธุรกรรมและปั๊มน้ำมัน (ต้องได้รับอนุญาตก่อน)</li>
+      <li>ข้อมูลยานพาหนะ — ชื่อรถ ประเภท ทะเบียน โอโดมิเตอร์ (สำหรับฟีเจอร์บันทึกน้ำมัน)</li>
+      <li>บันทึกการเติมน้ำมัน — ประเภทน้ำมัน ราคา ปริมาณลิตร โอโดมิเตอร์ ชื่อปั๊ม</li>
+      <li>ประวัติการแจ้งเตือน — บันทึกการแจ้งเตือนที่ได้รับ เก็บในอุปกรณ์ของคุณเท่านั้น</li>
+      <li>การตั้งค่า — ธีม ภาษา สกุลเงินหลัก การแจ้งเตือน โหมดปุ่ม +</li>
     </ul>
-
-    <h3>ซิงค์ผ่าน iCloud (หากเปิดใช้งาน)</h3>
-    <p>หากคุณเปิดใช้งาน iCloud ข้อมูลข้างต้น (รวมถึงประวัติการแจ้งเตือน) จะซิงค์ผ่าน <strong>Apple CloudKit</strong>
-      ภายใต้ <a href="https://www.apple.com/legal/privacy/" target="_blank">นโยบายความเป็นส่วนตัวของ Apple</a></p>
 
     <h3>ส่งไปยัง Firebase</h3>
-    <p>เพื่อปรับปรุงแอพ Jod ส่งข้อมูลต่อไปนี้ไปยัง Google Firebase โดยไม่ระบุตัวตน:</p>
+    <p>เพื่อปรับปรุงแอพ Jod ส่งข้อมูลต่อไปนี้ไปยัง Google Firebase:</p>
     <ul>
-      <li><strong>Crash Reports</strong> — ข้อมูล crash เพื่อช่วยแก้บัก</li>
-      <li><strong>Analytics Events</strong> — สถิติการใช้ฟีเจอร์แบบรวม ไม่มีข้อมูลส่วนตัว</li>
+      <li><strong>Crash Reports (Crashlytics)</strong> — รายงาน crash โดยไม่ระบุตัวตน เพื่อแก้ไขบัก</li>
+      <li><strong>Analytics Events</strong> — สถิติการใช้งานฟีเจอร์โดยรวม ไม่มีข้อมูลส่วนบุคคล</li>
+      <li><strong>Remote Config</strong> — ดึง URL แหล่งข้อมูลภายนอก (อัตราแลกเปลี่ยน, ราคาน้ำมัน, หวย) เพื่อให้อัพเดทได้โดยไม่ต้องออก app update ใหม่ ไม่มีข้อมูลส่วนบุคคล</li>
+    </ul>
+    <p><strong>ข้อมูลทางการเงินทั้งหมดไม่ถูกส่งไปยัง Firebase</strong></p>
+
+    <h3>Push Notifications (APNs)</h3>
+    <p>หากคุณอนุญาตการแจ้งเตือน อุปกรณ์ของคุณจะได้รับ <strong>APNs Device Token</strong> ซึ่งเป็นตัวระบุนิรนามที่ Apple สร้างขึ้นเพื่อส่ง push notification ไปยังอุปกรณ์ของคุณ Token นี้:</p>
+    <ul>
+      <li>ถูกส่งไปยัง Jod API (Cloudflare Workers) เพื่อใช้ส่งแจ้งเตือนราคาน้ำมัน และผลสลากกินแบ่ง</li>
+      <li>ไม่มีข้อมูลส่วนตัวของคุณแนบอยู่ — เป็นเพียงตัวระบุอุปกรณ์ที่ Apple กำหนด</li>
+      <li>ถูกลบออกจากเซิร์ฟเวอร์โดยอัตโนมัติเมื่อคุณเพิกถอนสิทธิ์การแจ้งเตือน</li>
     </ul>
 
-    <h3>ข้อมูลภายนอกที่ดึงสำหรับ Gimmick Tools & News</h3>
-    <p>ฟีเจอร์บางอย่างดึงข้อมูลสาธารณะจากแหล่งภายนอกผ่าน Cloudflare Workers หรือ Gist:</p>
+    <h3>ข้อมูลที่ดึงจากแหล่งภายนอก (ฟีเจอร์ Tools)</h3>
+    <p>ฟีเจอร์บางอย่างดึงข้อมูลสาธารณะจากแหล่งภายนอก ข้อมูลเหล่านี้ <strong>ไม่ใช่ข้อมูลส่วนตัวของคุณ</strong> และไม่เกี่ยวข้องกับบัญชีหรือธุรกรรมของคุณ:</p>
     <ul>
-      <li><strong>ข่าวสารและโปรโมชัน (Remote Messages)</strong> — ดึงรายการข่าวสารล่าสุดเพื่อแสดงในแถบ "ข่าวสาร"
-        ระบบจะตรวจสอบระดับสมาชิกของคุณ (Free, Pro, Auto) ภายในเครื่องเพื่อเลือกแสดงข้อความที่เหมาะสม
-        โดยไม่มีการส่งตัวตนของคุณออกไปภายนอก</li>
-      <li><strong>ข้อมูลสาธารณะอื่นๆ</strong> — ราคาน้ำมัน, อัตราแลกเปลี่ยน, ผลสลากกินแบ่ง</li>
+      <li><strong>ราคาน้ำมัน</strong> — ดึงข้อมูลราคาน้ำมันสาธารณะผ่าน Cloudflare Workers ใช้แสดงราคาน้ำมันปัจจุบันและพรุ่งนี้เท่านั้น</li>
+      <li><strong>อัตราแลกเปลี่ยน</strong> — ดึงผ่าน Cloudflare Workers จากข้อมูลธนาคารแห่งประเทศไทย (BOT) วันละครั้ง ใช้แปลงสกุลเงินในธุรกรรม</li>
+      <li><strong>ผลสลากกินแบ่งรัฐบาล</strong> — ดึงผลรางวัลสาธารณะผ่าน Cloudflare Workers สำหรับฟีเจอร์ตรวจสลาก</li>
     </ul>
+    <p>ไม่มีข้อมูลส่วนตัวของคุณถูกส่งออกระหว่างการดึงข้อมูลเหล่านี้</p>
 
     <h2>2. สิทธิ์ที่แอพขอใช้</h2>
     <div class="table-wrap">
@@ -324,45 +348,70 @@
           <th>บังคับ</th>
         </tr>
         <tr>
-          <td>Notifications</td>
-          <td>แจ้งเตือนวันชำระบัตร, ราคาน้ำมัน, ข่าวสารแอป และการปลดล็อคฉายา</td>
-          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
-        </tr>
-        <tr>
           <td>Face ID / Touch ID</td>
           <td>ล็อคแอพเพื่อปกป้องข้อมูลส่วนตัว</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
-          <td>กล้อง / Photos</td>
-          <td>สแกนสลิปธนาคาร และแนบรูปใบเสร็จ</td>
+          <td>กล้อง</td>
+          <td>สแกนใบเสร็จด้วย OCR และสแกนสลิปโอนเงิน</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
-          <td>ตำแหน่งที่ตั้ง</td>
-          <td>บันทึกสถานที่ทำธุรกรรม และค้นหาปั๊มน้ำมันใกล้เคียง</td>
+          <td>ไมโครโฟน + Speech Recognition</td>
+          <td>บันทึกรายการด้วยเสียง</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>ตำแหน่งที่ตั้ง (เมื่อใช้แอพ)</td>
+          <td>Check-in สถานที่กับธุรกรรม และค้นหาปั๊มน้ำมันใกล้เคียงในฟีเจอร์บันทึกน้ำมัน</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>Photos</td>
+          <td>เลือกรูปใบเสร็จจาก Photos และบันทึกรูปใบเสร็จลง Photos</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>Notifications (Push)</td>
+          <td>แจ้งเตือนวันครบกำหนดชำระบัตรเครดิต แจ้งเตือนราคาน้ำมัน และผลสลากกินแบ่ง (รวม APNs Device Token)</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
       </table>
     </div>
+    <p>คุณสามารถเพิกถอนสิทธิ์ได้ตลอดเวลาผ่าน <strong>iOS Settings → Jod</strong></p>
 
     <h2>3. ข้อมูลที่ไม่เก็บ</h2>
     <div class="not-collected">
       <ul>
         <li>เลขบัตรเครดิต / CVV / รหัสผ่านธนาคาร</li>
-        <li>ข้อมูลระบุตัวตนจริง เช่น ชื่อจริง เลขบัตรประชาชน</li>
+        <li>ข้อมูลระบุตัวตน เช่น ชื่อจริง เลขบัตรประชาชน หมายเลขพาสปอร์ต</li>
+        <li>ข้อมูลจาก Contacts หรือ Calendar</li>
+        <li>ประวัติการค้นหาหรือเว็บบราวซิ่ง</li>
         <li>ข้อมูลเพื่อขายให้บุคคลที่สาม</li>
       </ul>
     </div>
 
-    <h2>4. สิทธิ์ของคุณ</h2>
+    <h2>4. การซื้อในแอพ (Jod Pro)</h2>
+    <p>การซื้อ Jod Pro ดำเนินการผ่าน <strong>Apple App Store</strong> ทั้งหมด Jod
+      ไม่เก็บหรือประมวลผลข้อมูลการชำระเงินโดยตรง กรุณาดู <a href="https://www.apple.com/legal/internet-services/itunes/"
+        target="_blank">Apple Media Services Terms</a></p>
+
+    <h2>5. สิทธิ์ของคุณ</h2>
     <ul>
-      <li><strong>ลบประวัติการแจ้งเตือน:</strong> สามารถกดล้างข้อมูลทั้งหมดได้จากหน้า Notification Center ภายในแอพ</li>
-      <li><strong>ลบข้อมูลทั้งหมด:</strong> ถอนการติดตั้งแอพ หรือลบข้อมูล iCloud ผ่าน Settings</li>
+      <li><strong>ลบข้อมูลในอุปกรณ์:</strong> ถอนการติดตั้งแอพ</li>
+      <li><strong>ปิด Push Notification:</strong> iOS Settings → Jod → Notifications → ปิด จากนั้น token จะถูกลบออกจากเซิร์ฟเวอร์</li>
+      <li><strong>ปิด Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
       <li><strong>เพิกถอนสิทธิ์:</strong> iOS Settings → Jod → ปิดสิทธิ์ที่ต้องการ</li>
     </ul>
 
-    <h2>5. ติดต่อ</h2>
+    <h2>6. ผู้เยาว์</h2>
+    <p>แอพนี้ไม่ได้มุ่งเป้าไปยังเด็กอายุต่ำกว่า 13 ปี และไม่เก็บข้อมูลของผู้เยาว์โดยตั้งใจ</p>
+
+    <h2>7. การเปลี่ยนแปลงนโยบาย</h2>
+    <p>หากมีการเปลี่ยนแปลงที่สำคัญ เราจะแจ้งผ่าน app update หรืออัพเดทวันที่ด้านบนของหน้านี้</p>
+
+    <h2>8. ติดต่อ</h2>
     <div class="contact-card">
       <p>มีคำถามเกี่ยวกับนโยบายนี้?</p>
       <div class="email"><a href="mailto:ox.11-gin@icloud.com">OX.11-GIN@ICLOUD.COM</a></div>
@@ -370,46 +419,54 @@
 
   </div>
 
-  <div id="en" style="display:none;">
-
-    <header>
-      <div class="app-label">Jod (จด) · com.bsan.jod</div>
-      <h1>Privacy Policy</h1>
-      <p class="meta">Effective: April 7, 2026 · Version 0.9.14</p>
-    </header>
+  <!-- ════ ENGLISH ════ -->
+  <div class="en-content" id="en">
 
     <div class="highlight">
       <p><strong>TL;DR:</strong> Jod stores your financial data locally on your device only. No user accounts, no data
-        selling. Notification history is stored locally for your convenience and auto-pruned after 30 days.</p>
+        selling, no financial data sent to third parties.</p>
     </div>
 
     <h2>1. Data We Collect</h2>
 
     <h3>Stored Locally on Your Device</h3>
-    <p>The following data is stored on your device via SwiftData and is not transmitted to Jod or third parties:</p>
+    <p>The following data is stored on your device and not transmitted to Jod or third parties:</p>
     <ul>
-      <li>Financial transactions — income, expenses, categories, dates, tags</li>
-      <li>Account info — balances, credit card due dates (no card numbers)</li>
-      <li><strong>Notification Log</strong> — stores notification history (oil prices, lottery, card reminders,
-        achievements) to display in the Notification Center. This data is auto-deleted after 30 days.</li>
-      <li>Achievement Progress — list of unlocked badges and milestones</li>
-      <li>Vehicle & Fuel logs — vehicle info and fuel entry history</li>
-      <li>Preferences — theme, language, and notification settings</li>
+      <li>Financial transactions — income, expenses, amounts, categories, dates, notes, tags, receipt photos</li>
+      <li>Account information — name, type, balance, credit card due dates, credit limits (no card numbers)</li>
+      <li>Display name — name you set in Settings (optional, not your real identity)</li>
+      <li>Location names — place names attached to transactions and fuel stations (requires permission)</li>
+      <li>Vehicle information — vehicle name, type, license plate, odometer readings (for Fuel Log feature)</li>
+      <li>Fuel log entries — fuel type, price, liters, odometer, station name</li>
+      <li>Notification history — a local log of received notifications (stored on device only)</li>
+      <li>Preferences — theme, language, base currency, notification settings, + button mode</li>
     </ul>
 
-    <h3>Synced via iCloud (if enabled)</h3>
-    <p>If enabled, all data above (including notification logs) syncs via <strong>Apple CloudKit</strong>, governed by
-      <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.
-    </p>
-
-    <h3>External Data & News Feed</h3>
-    <p>Some features fetch public data via Cloudflare Workers or Gist:</p>
+    <h3>Sent to Firebase</h3>
+    <p>To improve the app, Jod sends the following to Google Firebase:</p>
     <ul>
-      <li><strong>News & Promotions (Remote Messages)</strong> — fetches the latest news feed. The app checks your
-        subscription tier (Free, Pro, Auto) locally to display relevant messages. No personal identifiers are
-        transmitted during this process.</li>
-      <li><strong>Public Data</strong> — Oil prices, exchange rates, and lottery results.</li>
+      <li><strong>Crash Reports (Crashlytics)</strong> — anonymous crash data to help fix bugs</li>
+      <li><strong>Analytics Events</strong> — aggregate feature usage statistics, no personal data</li>
+      <li><strong>Remote Config</strong> — fetches external data source URLs (exchange rates, oil prices, lottery) to allow updates without requiring a new app release. No personal data is involved.</li>
     </ul>
+    <p><strong>No financial data is ever sent to Firebase.</strong></p>
+
+    <h3>Push Notifications (APNs)</h3>
+    <p>If you grant notification permission, your device receives an <strong>APNs Device Token</strong> — an anonymous identifier generated by Apple to deliver push notifications to your device. This token:</p>
+    <ul>
+      <li>Is sent to Jod's API (Cloudflare Workers) solely to deliver oil price and lottery alerts</li>
+      <li>Contains no personal information — it is an opaque device identifier assigned by Apple</li>
+      <li>Is automatically removed from our server when you revoke notification permission</li>
+    </ul>
+
+    <h3>External Data Fetched for Tools</h3>
+    <p>Some features retrieve publicly available data from external sources. This data is <strong>not your personal data</strong> and is unrelated to your accounts or transactions:</p>
+    <ul>
+      <li><strong>Oil Prices</strong> — public oil price data fetched via Cloudflare Workers. Used only to display current and tomorrow's prices.</li>
+      <li><strong>Exchange Rates</strong> — fetched via Cloudflare Workers from Bank of Thailand (BOT) data, once daily. Used to convert currencies in transactions.</li>
+      <li><strong>Lottery Results</strong> — public prize data fetched via Cloudflare Workers for the Lottery Checker feature.</li>
+    </ul>
+    <p>No personal data is transmitted during any of these external data fetches.</p>
 
     <h2>2. Permissions Requested</h2>
     <div class="table-wrap">
@@ -420,37 +477,71 @@
           <th>Required</th>
         </tr>
         <tr>
-          <td>Notifications</td>
-          <td>Payment reminders, oil alerts, app news, and achievements</td>
-          <td><span class="badge badge-optional">Optional</span></td>
-        </tr>
-        <tr>
-          <td>Biometrics</td>
+          <td>Face ID / Touch ID</td>
           <td>App Lock to protect your financial data</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
-          <td>Camera / Photos</td>
-          <td>Scan receipts and bank transfer slips</td>
+          <td>Camera</td>
+          <td>Scan receipts using OCR, and scan bank transfer slips</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
-          <td>Location</td>
-          <td>Tag transactions and find nearby fuel stations</td>
+          <td>Microphone + Speech Recognition</td>
+          <td>Voice entry for transactions</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Location (When In Use)</td>
+          <td>Check-in places to transactions, and search for nearby fuel stations in the Fuel Log feature</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Photos</td>
+          <td>Select receipt images from Photos, and save receipt photos to Photos</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Notifications (Push)</td>
+          <td>Credit card due date reminders, oil price change alerts, and lottery result notifications (includes APNs Device Token)</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
       </table>
     </div>
+    <p>You can revoke any permission at any time via <strong>iOS Settings → Jod</strong>.</p>
 
-    <h2>3. Your Rights</h2>
+    <h2>3. Data We Do NOT Collect</h2>
+    <div class="not-collected">
+      <ul>
+        <li>Credit card numbers, CVV codes, or banking passwords</li>
+        <li>Personal identifiers such as real name, national ID, or passport number</li>
+        <li>Data from your Contacts or Calendar</li>
+        <li>Browsing history or search activity</li>
+        <li>Any data sold to advertisers or third parties</li>
+      </ul>
+    </div>
+
+    <h2>4. In-App Purchase (Jod Pro)</h2>
+    <p>Jod Pro purchases are processed entirely through the <strong>Apple App Store</strong>. Jod does not collect or
+      process payment information directly. See <a href="https://www.apple.com/legal/internet-services/itunes/"
+        target="_blank">Apple Media Services Terms</a>.</p>
+
+    <h2>5. Your Rights</h2>
     <ul>
-      <li><strong>Clear Notification History:</strong> You can clear logs anytime within the Notification Center view.
-      </li>
-      <li><strong>Delete All Data:</strong> Uninstall the app or delete iCloud data via Settings.</li>
-      <li><strong>Revoke Permissions:</strong> Manage via iOS Settings → Jod.</li>
+      <li><strong>Delete local data:</strong> Uninstall the app</li>
+      <li><strong>Disable push notifications:</strong> iOS Settings → Jod → Notifications → turn off. Your device token will be removed from our server.</li>
+      <li><strong>Opt out of Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
+      <li><strong>Revoke permissions:</strong> iOS Settings → Jod → toggle off any permission</li>
     </ul>
 
-    <h2>4. Contact</h2>
+    <h2>6. Children's Privacy</h2>
+    <p>This app is not directed at children under 13 and does not knowingly collect data from minors.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>If we make significant changes, we'll notify you via an app update or by updating the date at the top of this
+      page.</p>
+
+    <h2>8. Contact</h2>
     <div class="contact-card">
       <p>Questions about this policy?</p>
       <div class="email"><a href="mailto:ox.11-gin@icloud.com">OX.11-GIN@ICLOUD.COM</a></div>
@@ -459,8 +550,8 @@
   </div>
 
   <footer>
-    Jod The Money Tracker Apps (จด) · com.bsan.jod<br>
-    <a href="https://apps.apple.com/app/id6761645513" target="_blank">App Store</a>
+    Jod The Money Tracker Apps (จด) · com.bsan.jod <br>
+    <a href="https://apps.apple.com/app/id6743746951" target="_blank">App Store</a>
   </footer>
 
   <script>
@@ -471,7 +562,6 @@
       btn.classList.add('active');
     }
   </script>
-
 </body>
 
 </html>
