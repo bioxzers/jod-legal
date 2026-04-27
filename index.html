@@ -27,11 +27,7 @@
       }
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
@@ -50,224 +46,84 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .app-icon {
-      font-size: 64px;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
+    .app-icon { font-size: 64px; line-height: 1; margin-bottom: 12px; }
+    .app-name { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .doc-title { font-size: 18px; color: var(--secondary); margin-bottom: 16px; }
 
-    .app-name {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .doc-title {
-      font-size: 18px;
-      color: var(--secondary);
-      margin-bottom: 16px;
-    }
-
-    .meta {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
+    .meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .meta-item {
-      font-size: 13px;
-      color: var(--secondary);
-      background: var(--surface);
-      padding: 4px 12px;
-      border-radius: 20px;
+      font-size: 13px; color: var(--secondary);
+      background: var(--surface); padding: 4px 12px; border-radius: 20px;
     }
 
     h2 {
-      font-size: 20px;
-      font-weight: 600;
-      margin: 36px 0 12px;
-      padding-bottom: 8px;
+      font-size: 20px; font-weight: 600;
+      margin: 36px 0 12px; padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
 
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 20px 0 8px;
-      color: var(--accent);
-    }
+    h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; color: var(--accent); }
 
-    p {
-      margin-bottom: 12px;
-      color: var(--text);
-    }
+    p { margin-bottom: 12px; color: var(--text); }
 
-    ul,
-    ol {
-      padding-left: 20px;
-      margin-bottom: 12px;
-    }
+    ul, ol { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
 
-    li {
-      margin-bottom: 6px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .table-wrap {
-      overflow-x: auto;
-      margin: 16px 0;
-      border-radius: 12px;
-      border: 1px solid var(--border);
+      overflow-x: auto; margin: 16px 0;
+      border-radius: 12px; border: 1px solid var(--border);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th {
-      background: var(--surface);
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-      border-bottom: 1px solid var(--border);
+      background: var(--surface); padding: 10px 14px;
+      text-align: left; font-weight: 600; border-bottom: 1px solid var(--border);
     }
-
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
 
     .badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 8px;
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 8px;
     }
-
-    .badge-no {
-      background: rgba(255, 59, 48, 0.1);
-      color: var(--red);
-    }
-
-    .badge-optional {
-      background: rgba(0, 122, 255, 0.1);
-      color: var(--accent);
-    }
-
-    .badge-auto {
-      background: rgba(52, 199, 89, 0.1);
-      color: var(--green);
-    }
+    .badge-no       { background: rgba(255,59,48,.1);  color: var(--red); }
+    .badge-optional { background: rgba(0,122,255,.1);  color: var(--accent); }
+    .badge-auto     { background: rgba(52,199,89,.1);  color: var(--green); }
 
     .highlight {
-      background: var(--surface);
-      border-left: 3px solid var(--accent);
-      padding: 14px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 16px 0;
+      background: var(--surface); border-left: 3px solid var(--accent);
+      padding: 14px 16px; border-radius: 0 8px 8px 0; margin: 16px 0;
     }
+    .highlight p { margin: 0; font-size: 14px; }
 
-    .highlight p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .not-collected {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin: 16px 0;
-    }
-
-    .not-collected li {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .not-collected li::before {
-      content: "\2717";
-      color: var(--red);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .not-collected li {
-      list-style: none;
-      padding-left: 0;
-    }
+    .not-collected { background: var(--surface); border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
+    .not-collected li { display: flex; align-items: baseline; gap: 8px; list-style: none; padding-left: 0; }
+    .not-collected li::before { content: "\2717"; color: var(--red); font-weight: 700; flex-shrink: 0; }
 
     .contact-card {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-top: 16px;
-      text-align: center;
+      background: var(--surface); border-radius: 14px;
+      padding: 20px 24px; margin-top: 16px; text-align: center;
     }
+    .contact-card .email { font-size: 18px; font-weight: 600; color: var(--accent); margin-top: 8px; }
 
-    .contact-card .email {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 8px;
-    }
-
-    .lang-toggle {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 32px;
-    }
-
+    .lang-toggle { display: flex; gap: 8px; margin-bottom: 32px; }
     .lang-btn {
-      padding: 6px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--secondary);
-      font-size: 13px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s;
+      padding: 6px 16px; border-radius: 16px; border: 1px solid var(--border);
+      background: transparent; color: var(--secondary); font-size: 13px;
+      cursor: pointer; font-family: inherit; transition: all .2s;
     }
+    .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    .lang-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .en-content {
-      display: none;
-    }
-
-    .th-content {
-      display: block;
-    }
+    .en-content { display: none; }
+    .th-content { display: block; }
 
     footer {
-      margin-top: 48px;
-      padding-top: 24px;
+      margin-top: 48px; padding-top: 24px;
       border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--secondary);
-      font-size: 13px;
+      text-align: center; color: var(--secondary); font-size: 13px;
     }
   </style>
 </head>
@@ -279,9 +135,9 @@
     <div class="app-name">Jod The Money Tracker Apps (จด)</div>
     <div class="doc-title">นโยบายความเป็นส่วนตัว / Privacy Policy</div>
     <div class="meta">
-      <span class="meta-item">อัพเดท: 15 เมษายน 2026</span>
+      <span class="meta-item">อัพเดท: 25 เมษายน 2026</span>
       <span class="meta-item">Bundle ID: com.bsan.jod</span>
-      <span class="meta-item">Version 0.9.15</span>
+      <span class="meta-item">Version 0.9.18</span>
     </div>
   </div>
 
@@ -303,38 +159,47 @@
     <h3>ข้อมูลที่เก็บในอุปกรณ์ของคุณ</h3>
     <p>ข้อมูลต่อไปนี้ถูกเก็บในอุปกรณ์ของคุณและไม่ถูกส่งไปยัง Jod หรือบุคคลที่สาม:</p>
     <ul>
-      <li>ธุรกรรมทางการเงิน — รายรับ รายจ่าย จำนวนเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก รูปใบเสร็จ</li>
+      <li>ธุรกรรมทางการเงิน — รายรับ รายจ่าย จำนวนเงิน สกุลเงิน หมวดหมู่ วันที่ หมายเหตุ แท็ก รูปใบเสร็จ</li>
       <li>ข้อมูลบัญชี — ชื่อ ประเภท ยอดเงิน วันครบกำหนดบัตรเครดิต วงเงิน (ไม่รวมเลขบัตร)</li>
+      <li>งบประมาณ &amp; เป้าหมายการออม — วงเงินรายเดือนต่อหมวดหมู่ เป้าหมายออมเงิน ยอดสะสม</li>
+      <li>รายการประจำ &amp; แจ้งเตือนบิล — รายการที่ตั้งซ้ำ ความถี่ วันครบกำหนด การตั้งค่าแจ้งเตือนล่วงหน้า</li>
+      <li>Subscription — รายการสมัครบริการ จำนวนเงิน รอบการชำระ วันต่ออายุ</li>
+      <li>กฎหมวดหมู่อัตโนมัติ — คีย์เวิร์ดและหมวดหมู่ที่ผู้ใช้กำหนด (เก็บใน UserDefaults)</li>
+      <li>ประวัติมูลค่าสุทธิ — snapshot ยอดสุทธิรายวัน สูงสุด 365 วัน (เก็บใน UserDefaults)</li>
+      <li>Spending Challenges — ความท้าทายที่เลือก วันเริ่ม ผลสำเร็จ (เก็บใน UserDefaults)</li>
       <li>ชื่อผู้ใช้ — ชื่อที่ตั้งใน Settings (ไม่บังคับ ไม่ใช่ข้อมูลจริง)</li>
       <li>ข้อมูลสถานที่ — ชื่อสถานที่ที่แนบกับธุรกรรมและปั๊มน้ำมัน (ต้องได้รับอนุญาตก่อน)</li>
-      <li>ข้อมูลยานพาหนะ — ชื่อรถ ประเภท ทะเบียน โอโดมิเตอร์ (สำหรับฟีเจอร์บันทึกน้ำมัน)</li>
-      <li>บันทึกการเติมน้ำมัน — ประเภทน้ำมัน ราคา ปริมาณลิตร โอโดมิเตอร์ ชื่อปั๊ม</li>
+      <li>ข้อมูลยานพาหนะ — ชื่อรถ ประเภท ทะเบียน โอโดมิเตอร์ รองรับรถ EV</li>
+      <li>บันทึกการเติมน้ำมัน / ชาร์จ EV — ประเภทน้ำมัน/ชาร์จ ราคา ปริมาณ kWh แบตเตอรี่ก่อน/หลัง</li>
       <li>ประวัติการแจ้งเตือน — บันทึกการแจ้งเตือนที่ได้รับ เก็บในอุปกรณ์ของคุณเท่านั้น</li>
       <li>การตั้งค่า — ธีม ภาษา สกุลเงินหลัก การแจ้งเตือน โหมดปุ่ม +</li>
     </ul>
 
+    <h3>iCloud Sync (CloudKit)</h3>
+    <p>ข้อมูลใน Jod สามารถ sync ผ่าน iCloud ไปยังอุปกรณ์อื่นของคุณโดยใช้ <strong>Apple CloudKit</strong> ข้อมูลที่ sync ใช้ Apple ID ของคุณและอยู่ภายใต้ <a href="https://www.apple.com/legal/privacy/" target="_blank">นโยบายความเป็นส่วนตัวของ Apple</a> Jod ไม่มีการเข้าถึงข้อมูล iCloud ของคุณโดยตรง คุณสามารถปิด iCloud sync ได้ที่ iOS Settings → [ชื่อ Apple ID] → iCloud → Jod</p>
+
     <h3>ส่งไปยัง Firebase</h3>
     <p>เพื่อปรับปรุงแอพ Jod ส่งข้อมูลต่อไปนี้ไปยัง Google Firebase:</p>
     <ul>
-      <li><strong>Crash Reports (Crashlytics)</strong> — รายงาน crash โดยไม่ระบุตัวตน เพื่อแก้ไขบัก</li>
+      <li><strong>Crash Reports (Crashlytics)</strong> — รายงาน crash โดยไม่ระบุตัวตน รวมถึงข้อมูล diagnostic เมื่อเกิดข้อผิดพลาดที่ SwiftData ModelContainer เพื่อแก้ไขบัก (ไม่รวมข้อมูลทางการเงิน)</li>
       <li><strong>Analytics Events</strong> — สถิติการใช้งานฟีเจอร์โดยรวม ไม่มีข้อมูลส่วนบุคคล</li>
-      <li><strong>Remote Config</strong> — ดึง URL แหล่งข้อมูลภายนอก (อัตราแลกเปลี่ยน, ราคาน้ำมัน, หวย) เพื่อให้อัพเดทได้โดยไม่ต้องออก app update ใหม่ ไม่มีข้อมูลส่วนบุคคล</li>
+      <li><strong>Remote Config</strong> — ดึง URL แหล่งข้อมูลภายนอก (อัตราแลกเปลี่ยน ราคาน้ำมัน หวย) โดยไม่ต้องออก app update ใหม่ ไม่มีข้อมูลส่วนบุคคล</li>
     </ul>
     <p><strong>ข้อมูลทางการเงินทั้งหมดไม่ถูกส่งไปยัง Firebase</strong></p>
 
     <h3>Push Notifications (APNs)</h3>
-    <p>หากคุณอนุญาตการแจ้งเตือน อุปกรณ์ของคุณจะได้รับ <strong>APNs Device Token</strong> ซึ่งเป็นตัวระบุนิรนามที่ Apple สร้างขึ้นเพื่อส่ง push notification ไปยังอุปกรณ์ของคุณ Token นี้:</p>
+    <p>หากคุณอนุญาตการแจ้งเตือน อุปกรณ์ของคุณจะได้รับ <strong>APNs Device Token</strong> ซึ่งเป็นตัวระบุนิรนามที่ Apple สร้างขึ้น Token นี้:</p>
     <ul>
-      <li>ถูกส่งไปยัง Jod API (Cloudflare Workers) เพื่อใช้ส่งแจ้งเตือนราคาน้ำมัน และผลสลากกินแบ่ง</li>
+      <li>ถูกส่งไปยัง Jod API (Cloudflare Workers) เพื่อส่งแจ้งเตือน เช่น ราคาน้ำมัน ผลสลาก บิลครบกำหนด และแจ้งเตือนงบประมาณ</li>
       <li>ไม่มีข้อมูลส่วนตัวของคุณแนบอยู่ — เป็นเพียงตัวระบุอุปกรณ์ที่ Apple กำหนด</li>
       <li>ถูกลบออกจากเซิร์ฟเวอร์โดยอัตโนมัติเมื่อคุณเพิกถอนสิทธิ์การแจ้งเตือน</li>
     </ul>
 
     <h3>ข้อมูลที่ดึงจากแหล่งภายนอก (ฟีเจอร์ Tools)</h3>
-    <p>ฟีเจอร์บางอย่างดึงข้อมูลสาธารณะจากแหล่งภายนอก ข้อมูลเหล่านี้ <strong>ไม่ใช่ข้อมูลส่วนตัวของคุณ</strong> และไม่เกี่ยวข้องกับบัญชีหรือธุรกรรมของคุณ:</p>
+    <p>ฟีเจอร์บางอย่างดึงข้อมูลสาธารณะจากแหล่งภายนอก ข้อมูลเหล่านี้ <strong>ไม่ใช่ข้อมูลส่วนตัวของคุณ</strong>:</p>
     <ul>
-      <li><strong>ราคาน้ำมัน</strong> — ดึงข้อมูลราคาน้ำมันสาธารณะผ่าน Cloudflare Workers ใช้แสดงราคาน้ำมันปัจจุบันและพรุ่งนี้เท่านั้น</li>
-      <li><strong>อัตราแลกเปลี่ยน</strong> — ดึงผ่าน Cloudflare Workers จากข้อมูลธนาคารแห่งประเทศไทย (BOT) วันละครั้ง ใช้แปลงสกุลเงินในธุรกรรม</li>
+      <li><strong>ราคาน้ำมัน</strong> — ดึงข้อมูลราคาน้ำมันสาธารณะผ่าน Cloudflare Workers ใช้แสดงราคาและ prefill ในฟีเจอร์บันทึกน้ำมัน</li>
+      <li><strong>อัตราแลกเปลี่ยน</strong> — ดึงผ่าน Cloudflare Workers จากธนาคารแห่งประเทศไทย (BOT) วันละครั้ง ใช้แปลงสกุลเงินและเครื่องคิดแลกเงิน</li>
       <li><strong>ผลสลากกินแบ่งรัฐบาล</strong> — ดึงผลรางวัลสาธารณะผ่าน Cloudflare Workers สำหรับฟีเจอร์ตรวจสลาก</li>
     </ul>
     <p>ไม่มีข้อมูลส่วนตัวของคุณถูกส่งออกระหว่างการดึงข้อมูลเหล่านี้</p>
@@ -349,32 +214,42 @@
         </tr>
         <tr>
           <td>Face ID / Touch ID</td>
-          <td>ล็อคแอพเพื่อปกป้องข้อมูลส่วนตัว</td>
+          <td>App Lock เพื่อปกป้องข้อมูลทางการเงิน</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
           <td>กล้อง</td>
-          <td>สแกนใบเสร็จด้วย OCR และสแกนสลิปโอนเงิน</td>
+          <td>สแกนใบเสร็จด้วย OCR สแกนสลิปโอนเงิน และสแกน PromptPay QR</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
           <td>ไมโครโฟน + Speech Recognition</td>
-          <td>บันทึกรายการด้วยเสียง</td>
+          <td>บันทึกรายการด้วยเสียง รองรับภาษาไทยและอังกฤษ รู้จักสกุลเงินในประโยค</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
           <td>ตำแหน่งที่ตั้ง (เมื่อใช้แอพ)</td>
-          <td>Check-in สถานที่กับธุรกรรม และค้นหาปั๊มน้ำมันใกล้เคียงในฟีเจอร์บันทึกน้ำมัน</td>
+          <td>Check-in สถานที่กับธุรกรรม และค้นหาปั๊มน้ำมันใกล้เคียง</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
           <td>Photos</td>
-          <td>เลือกรูปใบเสร็จจาก Photos และบันทึกรูปใบเสร็จลง Photos</td>
+          <td>เลือกและบันทึกรูปใบเสร็จ รวมถึง Receipt Gallery</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
         <tr>
           <td>Notifications (Push)</td>
-          <td>แจ้งเตือนวันครบกำหนดชำระบัตรเครดิต แจ้งเตือนราคาน้ำมัน และผลสลากกินแบ่ง (รวม APNs Device Token)</td>
+          <td>แจ้งเตือนบัตรเครดิต ราคาน้ำมัน สลาก งบประมาณเกิน บิลครบกำหนด และ Subscription renewal (รวม APNs Device Token)</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>Siri &amp; App Intents</td>
+          <td>คำสั่งเสียง Siri เช่น "ดูยอดเงินใน Jod" หรือ "บันทึกรายจ่ายใน Jod" — ใช้ข้อมูลแคชในอุปกรณ์เท่านั้น ไม่ส่งข้อมูลการเงินออก</td>
+          <td><span class="badge badge-optional">ไม่บังคับ</span></td>
+        </tr>
+        <tr>
+          <td>iCloud (CloudKit)</td>
+          <td>Sync ข้อมูลระหว่างอุปกรณ์ของคุณผ่าน iCloud — ควบคุมได้จาก iOS Settings</td>
           <td><span class="badge badge-optional">ไม่บังคับ</span></td>
         </tr>
       </table>
@@ -388,20 +263,19 @@
         <li>ข้อมูลระบุตัวตน เช่น ชื่อจริง เลขบัตรประชาชน หมายเลขพาสปอร์ต</li>
         <li>ข้อมูลจาก Contacts หรือ Calendar</li>
         <li>ประวัติการค้นหาหรือเว็บบราวซิ่ง</li>
-        <li>ข้อมูลเพื่อขายให้บุคคลที่สาม</li>
+        <li>ข้อมูลเพื่อขายให้โฆษณาหรือบุคคลที่สาม</li>
       </ul>
     </div>
 
     <h2>4. การซื้อในแอพ (Jod Pro)</h2>
-    <p>การซื้อ Jod Pro ดำเนินการผ่าน <strong>Apple App Store</strong> ทั้งหมด Jod
-      ไม่เก็บหรือประมวลผลข้อมูลการชำระเงินโดยตรง กรุณาดู <a href="https://www.apple.com/legal/internet-services/itunes/"
-        target="_blank">Apple Media Services Terms</a></p>
+    <p>การซื้อ Jod Pro (ครั้งเดียวตลอดชีพ) และ Jod Auto (รายปี) ดำเนินการผ่าน <strong>Apple App Store</strong> ทั้งหมด Jod ไม่เก็บหรือประมวลผลข้อมูลการชำระเงินโดยตรง กรุณาดู <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank">Apple Media Services Terms</a></p>
 
     <h2>5. สิทธิ์ของคุณ</h2>
     <ul>
       <li><strong>ลบข้อมูลในอุปกรณ์:</strong> ถอนการติดตั้งแอพ</li>
       <li><strong>ปิด Push Notification:</strong> iOS Settings → Jod → Notifications → ปิด จากนั้น token จะถูกลบออกจากเซิร์ฟเวอร์</li>
-      <li><strong>ปิด Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
+      <li><strong>ปิด iCloud Sync:</strong> iOS Settings → [Apple ID] → iCloud → Jod → ปิด</li>
+      <li><strong>ปิด Analytics:</strong> iOS Settings → Privacy → Analytics &amp; Improvements</li>
       <li><strong>เพิกถอนสิทธิ์:</strong> iOS Settings → Jod → ปิดสิทธิ์ที่ต้องการ</li>
     </ul>
 
@@ -423,8 +297,7 @@
   <div class="en-content" id="en">
 
     <div class="highlight">
-      <p><strong>TL;DR:</strong> Jod stores your financial data locally on your device only. No user accounts, no data
-        selling, no financial data sent to third parties.</p>
+      <p><strong>TL;DR:</strong> Jod stores your financial data locally on your device only. No user accounts, no data selling, no financial data sent to third parties.</p>
     </div>
 
     <h2>1. Data We Collect</h2>
@@ -432,39 +305,48 @@
     <h3>Stored Locally on Your Device</h3>
     <p>The following data is stored on your device and not transmitted to Jod or third parties:</p>
     <ul>
-      <li>Financial transactions — income, expenses, amounts, categories, dates, notes, tags, receipt photos</li>
+      <li>Financial transactions — income, expenses, amounts, currencies, categories, dates, notes, tags, receipt photos</li>
       <li>Account information — name, type, balance, credit card due dates, credit limits (no card numbers)</li>
+      <li>Budgets &amp; Savings Goals — monthly category limits, goal names, target amounts, contribution history</li>
+      <li>Recurring transactions &amp; bill reminders — recurrence rules, frequency, due dates, advance reminder settings</li>
+      <li>Subscriptions — service name, billing amount, cycle, renewal date</li>
+      <li>Auto-category rules — user-defined keyword→category mappings (stored in UserDefaults)</li>
+      <li>Net worth history — daily net worth snapshots up to 365 days (stored in UserDefaults)</li>
+      <li>Spending challenges — active challenge type, start date, completion status (stored in UserDefaults)</li>
       <li>Display name — name you set in Settings (optional, not your real identity)</li>
       <li>Location names — place names attached to transactions and fuel stations (requires permission)</li>
-      <li>Vehicle information — vehicle name, type, license plate, odometer readings (for Fuel Log feature)</li>
-      <li>Fuel log entries — fuel type, price, liters, odometer, station name</li>
+      <li>Vehicle information — name, type, license plate, odometer readings; supports EV vehicles</li>
+      <li>Fuel &amp; EV charging logs — fuel type / charger type, price, liters, kWh, battery %, station name</li>
       <li>Notification history — a local log of received notifications (stored on device only)</li>
-      <li>Preferences — theme, language, base currency, notification settings, + button mode</li>
+      <li>Preferences — theme, language, base currency, notification settings, FAB mode</li>
     </ul>
+
+    <h3>iCloud Sync (CloudKit)</h3>
+    <p>Jod can sync your data across your own devices via <strong>Apple CloudKit</strong>. Synced data uses your Apple ID and is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>. Jod has no direct access to your iCloud data. You can disable iCloud sync at iOS Settings → [Your Apple ID] → iCloud → Jod.</p>
 
     <h3>Sent to Firebase</h3>
     <p>To improve the app, Jod sends the following to Google Firebase:</p>
     <ul>
-      <li><strong>Crash Reports (Crashlytics)</strong> — anonymous crash data to help fix bugs</li>
+      <li><strong>Crash Reports (Crashlytics)</strong> — anonymous crash data including diagnostic context when SwiftData errors occur, to help fix bugs. No financial data is included.</li>
       <li><strong>Analytics Events</strong> — aggregate feature usage statistics, no personal data</li>
-      <li><strong>Remote Config</strong> — fetches external data source URLs (exchange rates, oil prices, lottery) to allow updates without requiring a new app release. No personal data is involved.</li>
+      <li><strong>Remote Config</strong> — fetches external data source URLs (exchange rates, oil prices, lottery) to allow updates without a new app release. No personal data is involved.</li>
     </ul>
     <p><strong>No financial data is ever sent to Firebase.</strong></p>
 
     <h3>Push Notifications (APNs)</h3>
-    <p>If you grant notification permission, your device receives an <strong>APNs Device Token</strong> — an anonymous identifier generated by Apple to deliver push notifications to your device. This token:</p>
+    <p>If you grant notification permission, your device receives an <strong>APNs Device Token</strong> — an anonymous identifier generated by Apple. This token:</p>
     <ul>
-      <li>Is sent to Jod's API (Cloudflare Workers) solely to deliver oil price and lottery alerts</li>
+      <li>Is sent to Jod's API (Cloudflare Workers) solely to deliver alerts — oil price changes, lottery results, bill due dates, budget thresholds, and subscription renewals</li>
       <li>Contains no personal information — it is an opaque device identifier assigned by Apple</li>
       <li>Is automatically removed from our server when you revoke notification permission</li>
     </ul>
 
     <h3>External Data Fetched for Tools</h3>
-    <p>Some features retrieve publicly available data from external sources. This data is <strong>not your personal data</strong> and is unrelated to your accounts or transactions:</p>
+    <p>Some features retrieve publicly available data from external sources. This is <strong>not your personal data</strong>:</p>
     <ul>
-      <li><strong>Oil Prices</strong> — public oil price data fetched via Cloudflare Workers. Used only to display current and tomorrow's prices.</li>
-      <li><strong>Exchange Rates</strong> — fetched via Cloudflare Workers from Bank of Thailand (BOT) data, once daily. Used to convert currencies in transactions.</li>
-      <li><strong>Lottery Results</strong> — public prize data fetched via Cloudflare Workers for the Lottery Checker feature.</li>
+      <li><strong>Oil Prices</strong> — public oil price data via Cloudflare Workers. Used to display prices and pre-fill the Fuel Log feature.</li>
+      <li><strong>Exchange Rates</strong> — fetched via Cloudflare Workers from Bank of Thailand (BOT), once daily. Used for currency conversion and the Currency Calculator tool.</li>
+      <li><strong>Lottery Results</strong> — public prize data via Cloudflare Workers for the Lottery Checker feature.</li>
     </ul>
     <p>No personal data is transmitted during any of these external data fetches.</p>
 
@@ -483,12 +365,12 @@
         </tr>
         <tr>
           <td>Camera</td>
-          <td>Scan receipts using OCR, and scan bank transfer slips</td>
+          <td>Scan receipts via OCR, scan bank transfer slips, and scan PromptPay QR codes</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
           <td>Microphone + Speech Recognition</td>
-          <td>Voice entry for transactions</td>
+          <td>Voice entry for transactions in Thai and English, including automatic currency detection</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
@@ -498,12 +380,22 @@
         </tr>
         <tr>
           <td>Photos</td>
-          <td>Select receipt images from Photos, and save receipt photos to Photos</td>
+          <td>Select and save receipt images; browse all receipt photos in Receipt Gallery</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
         <tr>
           <td>Notifications (Push)</td>
-          <td>Credit card due date reminders, oil price change alerts, and lottery result notifications (includes APNs Device Token)</td>
+          <td>Credit card due dates, oil price alerts, lottery results, budget threshold warnings (80%/100%), bill reminders, subscription renewals (includes APNs Device Token)</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Siri &amp; App Intents</td>
+          <td>Voice commands such as "Check my balance in Jod" or "Add expense in Jod" — uses only on-device cached data, no financial data is sent externally</td>
+          <td><span class="badge badge-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>iCloud (CloudKit)</td>
+          <td>Sync data across your own devices via iCloud — controllable from iOS Settings</td>
           <td><span class="badge badge-optional">Optional</span></td>
         </tr>
       </table>
@@ -521,16 +413,15 @@
       </ul>
     </div>
 
-    <h2>4. In-App Purchase (Jod Pro)</h2>
-    <p>Jod Pro purchases are processed entirely through the <strong>Apple App Store</strong>. Jod does not collect or
-      process payment information directly. See <a href="https://www.apple.com/legal/internet-services/itunes/"
-        target="_blank">Apple Media Services Terms</a>.</p>
+    <h2>4. In-App Purchase (Jod Pro &amp; Jod Auto)</h2>
+    <p>Jod Pro (one-time lifetime) and Jod Auto (annual) purchases are processed entirely through the <strong>Apple App Store</strong>. Jod does not collect or process payment information directly. See <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank">Apple Media Services Terms</a>.</p>
 
     <h2>5. Your Rights</h2>
     <ul>
       <li><strong>Delete local data:</strong> Uninstall the app</li>
       <li><strong>Disable push notifications:</strong> iOS Settings → Jod → Notifications → turn off. Your device token will be removed from our server.</li>
-      <li><strong>Opt out of Analytics:</strong> iOS Settings → Privacy → Analytics & Improvements</li>
+      <li><strong>Disable iCloud Sync:</strong> iOS Settings → [Apple ID] → iCloud → Jod → turn off</li>
+      <li><strong>Opt out of Analytics:</strong> iOS Settings → Privacy → Analytics &amp; Improvements</li>
       <li><strong>Revoke permissions:</strong> iOS Settings → Jod → toggle off any permission</li>
     </ul>
 
@@ -538,8 +429,7 @@
     <p>This app is not directed at children under 13 and does not knowingly collect data from minors.</p>
 
     <h2>7. Changes to This Policy</h2>
-    <p>If we make significant changes, we'll notify you via an app update or by updating the date at the top of this
-      page.</p>
+    <p>If we make significant changes, we'll notify you via an app update or by updating the date at the top of this page.</p>
 
     <h2>8. Contact</h2>
     <div class="contact-card">
